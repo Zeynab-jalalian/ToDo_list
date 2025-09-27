@@ -11,15 +11,15 @@ const displayCount = (taskCount) => {
 
 const addTask = () => {
   const taskName = newTaskInput.value.trim();
-  error.style.display="none";
-  if(!taskName){
-    setTimeout(()=>{
-     error.style.display="block";
-    },200);
+  error.style.display = "none";
+  if (!taskName) {
+    setTimeout(() => {
+      error.style.display = "block";
+    }, 200);
     return;
   }
 
-  const task=`<div class="task">
+  const task = `<div class="task">
    <input type="checkbox" class="task-check">
    <span class="taskname">${taskName}</span>
    <button class="edit">
@@ -28,16 +28,24 @@ const addTask = () => {
    <button class="delete">
     <i class="fa-solid fa-trash"></i>
    </button>
-  </div>`
+  </div>`;
 
-  tasksContainer.insertAdjacentHTML("beforeend",task);
+  tasksContainer.insertAdjacentHTML("beforeend", task);
 
-  const deleteButtons=document.querySelectorAll(".delete");
-  deleteButtons.forEach(button=>{
-    button.onclick=()=>{
-        button.parentNode.remove();
+  const deleteButtons = document.querySelectorAll(".delete");
+  deleteButtons.forEach((button) => {
+    button.onclick = () => {
+      button.parentNode.remove();
+      taskCount= -1;
+      displayCount(taskCount);
+    };
+  });
+
+  const editButtons=document.querySelectorAll(".edit");
+  editButtons.forEach((editBtn)=>{
+    editBtn.onclick=(e)=>{
+      
     }
   })
-
 };
-addBtn.addEventListener("click",addTask)
+addBtn.addEventListener("click", addTask);
