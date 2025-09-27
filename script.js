@@ -32,5 +32,12 @@ const addTask = () => {
 
   tasksContainer.insertAdjacentHTML("beforeend",task);
 
+  const deleteButtons=document.querySelectorAll(".delete");
+  deleteButtons.forEach(button=>{
+    button.onclick=()=>{
+        button.parentNode.remove();
+    }
+  })
+
 };
 addBtn.addEventListener("click",addTask)
