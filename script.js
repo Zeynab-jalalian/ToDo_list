@@ -36,7 +36,7 @@ const addTask = () => {
   deleteButtons.forEach((button) => {
     button.onclick = () => {
       button.parentNode.remove();
-      taskCount= -1;
+      taskCount-=1;
       displayCount(taskCount);
     };
   });
@@ -44,7 +44,14 @@ const addTask = () => {
   const editButtons=document.querySelectorAll(".edit");
   editButtons.forEach((editBtn)=>{
     editBtn.onclick=(e)=>{
-      
+      let targetElement=e.target;
+      if(!(e.target.className == "edit")){
+        targetElement=e.target.parentElement;
+      }
+      newTaskInput.value=targetElement.previousElementSibling?.innerText;
+      targetElement.parentNode.remove();
+      taskCount-=1;
+      displayCount(taskCount);
     }
   })
 };
