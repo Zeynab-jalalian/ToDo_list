@@ -57,7 +57,7 @@ const addTask = () => {
 
   const tasksCheck = document.querySelectorAll(".task-check");
   tasksCheck.forEach((checkBox) => {
-    checkBox.onclick = () => {
+    checkBox.onchange = () => {
       checkBox.nextElementSibling.classList.toggle("completed");
       if (checkBox.checked) {
         taskCount -= 1;
@@ -70,5 +70,12 @@ const addTask = () => {
 
   taskCount+=1;
   displayCount(taskCount);
+  newTaskInput.value="";
 };
 addBtn.addEventListener("click", addTask);
+
+window.onload=()=>{
+  taskCount=0
+  displayCount(taskCount);
+  newTaskInput.value='';
+}
