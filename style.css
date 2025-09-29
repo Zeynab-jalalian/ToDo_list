@@ -111,7 +111,7 @@ body {
   font-weight: 900;
 }
 .task span{
-    font: 0.9em;
+    font-size: 0.9em;
     font-weight: 400;
     word-break: break-all;
 }
